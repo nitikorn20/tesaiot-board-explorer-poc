@@ -4,6 +4,9 @@ Independent design proposal for a **board showcase** and **hardware example cata
 
 ## Preview
 
+- [Live board showcase](https://nitikorn20.github.io/tesaiot-board-explorer-poc/)
+- [Live example catalog](https://nitikorn20.github.io/tesaiot-board-explorer-poc/examples.html)
+
 - Board showcase: `dist/index.html`
 - Example catalog: `dist/examples.html`
 - Source transparency: `dist/sources.html`
@@ -15,6 +18,14 @@ npm test
 ```
 
 Requires Node.js 22+. No package installation, backend, Docker, API key, or browser hardware permission is needed. Serve over HTTP; do not open HTML via `file://` because the catalog uses `fetch`.
+
+## Verification (2026-09-21)
+
+Six Node tests passed: catalog schema/provenance, combined filters, query sanitization/escaping, image presence, local static references, and absence of browser hardware APIs/embedded secrets. The initial GitHub Pages deployment and its CI validation completed successfully.
+
+Browser checks covered desktop and 390 × 844 mobile layouts, search, combined filters, NDR/no-match states, clearing filters, native details/Escape, keyboard feature tabs, source links, and an intentionally blocked catalog request followed by successful Retry. Network blocking and the temporary viewport override were removed after testing. Public Pages home/catalog returned HTTP 200; public filtering and detail view were also verified.
+
+These are website checks only, not firmware builds, hardware validation or a comprehensive accessibility audit.
 
 ## What is implemented
 
