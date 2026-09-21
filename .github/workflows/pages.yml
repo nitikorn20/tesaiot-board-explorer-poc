@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Verify generated pages are current
+        run: |
+          node scripts/build-pages.mjs
+          git diff --exit-code -- dist/*.html
       - name: Validate static site and catalog
         run: node --test tests/*.test.mjs
   deploy:

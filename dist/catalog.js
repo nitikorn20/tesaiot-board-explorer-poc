@@ -10,7 +10,7 @@ export function filterExamples(examples, input) {
   return examples.filter(item => (state.board==='all' || item.board===state.board)
     && (state.category==='all' || item.category===state.category)
     && (state.level==='all' || item.difficulty===state.level)
-    && words.every(word=>[item.title,item.subtitle,item.description,item.outcome,...item.tags,...item.hardware,...item.originalBoards].join(' ').toLocaleLowerCase().includes(word)));
+    && words.every(word=>[item.title,item.subtitle,item.description,item.outcome,...item.tags,...item.hardware,...item.originalBoards,...(item.searchTerms||[])].join(' ').toLocaleLowerCase().includes(word)));
 }
 export function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));

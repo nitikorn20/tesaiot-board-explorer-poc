@@ -4,6 +4,9 @@ import { readFile, stat, readdir } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { normalizeFilters, filterExamples, escapeHTML } from '../dist/catalog.js';
+import { boards } from '../dist/boards.js';
+import { english } from '../dist/example-translations.js';
+import { thresholdRGB } from '../dist/hardware-logic.js';
 const root = fileURLToPath(new URL('../dist/',import.meta.url));
 const catalog = JSON.parse(await readFile(resolve(root,'data/catalog.json'),'utf8'));
 const examples = catalog.examples;
@@ -53,8 +56,39 @@ test('all local static href/src and CSS imports resolve under dist',async()=>{
   }
 });
 test('no hardware APIs, third-party tracking or embedded secrets in site code',async()=>{
-  for(const file of ['app.js','catalog.js','index.html','examples.html','sources.html']) {
+  for(const file of ['explorer.js','ui.js','locale.js','preferences.js','catalog.js','index.html','examples.html','sources.html']) {
     const source=await readFile(resolve(root,file),'utf8');
     assert.doesNotMatch(source,/navigator\.(usb|serial|bluetooth)|getUserMedia|requestDevice|requestPort|google-analytics|gtag\(|github_pat_|ghp_[a-zA-Z0-9]{20}/);
+  }
+});
+
+test('board content is bilingual, coordinates bounded, NDR honestly labeled',()=>{
+  assert.equal(boards.training.hotspots.length,8);
+  assert.equal(boards.ndr.kind,'reference');
+  assert.match(boards.ndr.caption.en,/not a finished NDR PCB/);
+  for(const board of Object.values(boards)){
+    for(const point of board.hotspots){assert.ok(point.x>0&&point.x<100&&point.y>0&&point.y<100);assert.ok(point.title.th&&point.title.en&&point.desc.th&&point.desc.en);}
+    for(const block of board.groups)assert.ok(block.desc.th&&block.desc.en);
+  }
+  assert.ok(boards.ndr.groups.find(x=>x.id==='ethernet').optional);
+  assert.match(boards.ndr.groups.find(x=>x.id==='usb').desc.en,/share a PHY/);
+});
+test('all examples have English summaries; translated terms remain searchable',()=>{
+  for(const item of examples){assert.ok(english[item.id].description);assert.ok(english[item.id].outcome);if(item.note)assert.ok(english[item.id].note);}
+  const searchable=examples.map(item=>({...item,searchTerms:Object.values(english[item.id])}));
+  assert.ok(filterExamples(searchable,{q:'relative humidity'}).some(x=>x.id==='climate'));
+});
+test('RGB simulation respects 50% boundary and all eight digital combinations',()=>{
+  assert.deepEqual(thresholdRGB([0,50,51]),[0,0,1]);
+  const outputs=new Set();
+  for(let n=0;n<8;n++)outputs.add(thresholdRGB([n&1?100:0,n&2?100:0,n&4?100:0]).join(''));
+  assert.equal(outputs.size,8);
+});
+test('all pages expose language/theme controls and use the current entry points',async()=>{
+  for(const file of ['index.html','examples.html','sources.html']){
+    const html=await readFile(resolve(root,file),'utf8');
+    assert.match(html,/data-lang="th"/);assert.match(html,/data-lang="en"/);assert.match(html,/id="theme-toggle"/);
+    assert.match(html,/src="preferences.js"/);assert.match(html,/href="v2.css"/);
+    assert.doesNotMatch(html,/src="app.js"|href="styles.css"/);
   }
 });

@@ -1,0 +1,12 @@
+// Editorial English translations of the selected source summaries; identifiers stay unchanged.
+export const english={
+  motion:{description:'Visualize six-axis acceleration and rotation from the Bosch BMI270 on an LVGL display.',outcome:'See accelerometer and gyroscope measurements as a live hardware display when running the source example.'},
+  rgb:{description:'Use three potentiometers to switch R/G/B channels above a 50% threshold, mixing eight colors on the DFR0522 matrix and LCD.',outcome:'Three potentiometers select eight RGB colors at a 50% threshold. This is not continuous color dimming.'},
+  sensorhub:{description:'Bring DPS368, SHT4x, BMI270, BMM350 and stereo PDM microphone levels together in one sensor dashboard.',outcome:'Combine environmental, motion, magnetic and audio-level data in one on-device dashboard.',note:'The README requires a BMM350 vendor-code fix before building. Read the original setup instructions.'},
+  audio:{description:'Capture stereo PDM microphone signals and display left/right audio levels with LVGL.',outcome:'View left and right microphone levels. This is a level meter, not an AI audio classifier.'},
+  climate:{description:'Read relative humidity and temperature from a Sensirion SHT4x sensor over I²C and show them on an LVGL display.',outcome:'A starting point for an environmental monitor: read humidity and temperature and display the results.'},
+  pressure:{description:'Read atmospheric pressure and temperature from the Infineon DPS368 over I²C and display the values with LVGL.',outcome:'Explore pressure and temperature readings through a sensor-to-display example.'},
+  compass:{description:'Create a digital compass with a Bosch BMM350 magnetometer over I3C, including interactive hard-iron calibration.',outcome:'Display magnetometer-derived heading as an on-screen compass.',note:'The README documents a BMM350 vendor-code fix. Check calibration and the local magnetic environment.'},
+  scope:{description:'Plot four QWA309 potentiometer channels as scrolling 0–100% traces on an LVGL chart.',outcome:'Watch four potentiometer inputs change together. This is a teaching visualization, not a general-purpose oscilloscope.'},
+  wifi:{description:'Combine scanning, stored profiles, connection, automatic retry and a ping watchdog in an on-screen Wi-Fi manager.',outcome:'Explore a touchscreen Wi-Fi-management HMI. Read the master-template requirements before using it.'}
+};
