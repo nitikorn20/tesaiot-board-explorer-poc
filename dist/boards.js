@@ -1,4 +1,4 @@
-// The NDR photograph is a supplied reference composition, NOT a fabricated new PCB.
+// Training photo is real; NDR geometry is explicitly an illustrative concept.
 const pair=(th,en)=>({th,en});
 export const boards={
   training:{name:'QWA309 Training Kit',short:'Training',status:pair('SDK และตัวอย่างต้นทาง','SDK & source examples'),image:'assets/training-board.webp',kind:'actual',
@@ -22,12 +22,11 @@ export const boards={
       {id:'expand',icon:'expand',title:'Expansion',bus:'mikroBUS / ARDUINO',desc:pair('Header สำหรับต่อยอด ไม่ใช่ Pinout เดียวกับ NDR Base','Expansion headers for additional hardware; not the same pinout as the NDR base.')}
     ]
   },
-  ndr:{name:'TSOM + NDR Base',short:'TSOM / NDR',status:pair('แนวคิดบอร์ดใหม่ · รอยืนยัน Revision','New-board concept · revision pending'),image:'assets/ndr-reference-concept.png',kind:'reference',
-    caption:pair('Reference Concept จากสไลด์หน้า 10 · ไม่ใช่ภาพ PCB NDR ที่เสร็จแล้ว','Reference concept from slide 10 · not a finished NDR PCB'),
+  ndr:{name:'TSOM + NDR Base',short:'TSOM / NDR',status:pair('แนวคิดบอร์ดใหม่ · รอยืนยัน Revision','New-board concept · revision pending'),image:'assets/ndr-concept.svg',kind:'concept',
+    caption:pair('ภาพจำลอง SOM + Base · รูปทรงและตำแหน่งอุปกรณ์ยังไม่ยืนยัน','Illustrative SOM + carrier concept · not a finished NDR PCB'),
     hotspots:[
-      {id:'compute',x:45,y:42,icon:'chip',title:pair('ส่วน TSOM','TSOM module'),spec:'PSoC™ EDGE E84',desc:pair('โมดูลประมวลผลในภาพแนวคิด ส่วน SOM และ Base ต้องตรวจแยกกัน ไม่สืบทอดผลทดสอบจาก Carrier อื่น','Compute module in the supplied concept. Validate the SOM and base separately; another carrier’s results do not certify this base.'),href:'#architecture'},
-      {id:'base',x:14,y:65,icon:'board',title:pair('Base Board ใหม่','New base-board concept'),spec:'CARRIER / DEVELOPMENT PREVIEW',desc:pair('ภาพใช้ฐาน Luckfox เป็น Reference ประกอบแนวคิดเท่านั้น ไม่ใช่ Layout หรือภาพถ่าย Prototype ของ NDR','The supplied composition uses a Luckfox carrier as a visual reference. It is not an NDR layout or prototype photograph.'),href:'#architecture'},
-      {id:'io',x:84,y:53,icon:'usb',title:pair('ดู Interface จาก Block Diagram','Read interfaces in the diagram'),spec:'FINAL LAYOUT PENDING',desc:pair('ไม่ใช้ตำแหน่งพอร์ตในภาพ Reference เป็นข้อกำหนดจริง ให้ดู Block Diagram และยืนยัน Revision/BSP ก่อนใช้งาน','Ports in the reference image are not final specifications. Use the proposed block diagram and confirm the revision and BSP.'),href:'#architecture'}
+      {id:'compute',x:50,y:34,icon:'chip',title:pair('ส่วน TSOM','TSOM module'),spec:'PSoC™ EDGE E84',desc:pair('ส่วนประมวลผลในภาพจำลอง ต้องตรวจ SOM และ Base แยกกัน ไม่สืบทอดผลทดสอบจาก Carrier อื่น','Compute module in the illustration. Validate the SOM and base separately; another carrier’s results do not certify this base.'),href:'#architecture'},
+      {id:'base',x:52,y:67,icon:'board',title:pair('Base Board ใหม่','New base-board concept'),spec:'CARRIER / DEVELOPMENT PREVIEW',desc:pair('ภาพจำลองแสดงโครงสร้างเท่านั้น รูปทรง ตำแหน่งชิ้นส่วนและขั้วต่อไม่ใช่ Layout จริง ให้ดูร่าง Block Diagram และยืนยัน Revision/BSP','The illustration explains structure only. Shapes, parts and connector positions are not a final layout. Review the draft block diagram and confirm revision/BSP.'),href:'#architecture'}
     ],
     groups:[
       {id:'power',icon:'power',title:'Power',bus:'5V → 3.3V / AUX 1.8V',desc:pair('ร่างระบุ USB-C 5V, PMIC Buck และ Auxiliary 1.8V สำหรับ Level Shift ต้องยืนยัน Power Budget','The draft shows USB-C 5V, a PMIC buck stage and auxiliary 1.8V level-shift rail. Confirm the final power budget.')},

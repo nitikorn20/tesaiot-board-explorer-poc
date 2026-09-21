@@ -1,5 +1,17 @@
 # Board Explorer — design rationale
 
+## V4 — approved cinematic product direction (2026-09-21)
+
+The user approved **large video → two products + Developer Hub → three selected stories → concise next step**. Remove the PoC content-count strip and design-inspiration links from the public product journey. `sources.html` now contains directly relevant TESA / Infineon resources with collapsed media credits. The reference research below stays in the repository as design history; it is not product evidence.
+
+Keep the real 16-second TESA/BENTO excerpt on the homepage, without presenting it as a new test. This existing footage has limited resolution; for production, replace it with clean, intentionally filmed board/action/result footage. Do not replace TESA hardware with unrelated Infineon demo hardware solely because the processor family matches.
+
+The Training SDK contains a genuine GLB, which supersedes the earlier assumption that no suitable model was available. Load its self-hosted viewer only on request. The original model excludes the optional security add-on; keep that distinction explicit instead of creating an apparently real fitted module. The NDR asset is an abstract code-generated concept, labeled throughout, not a final port map. Final NDR CAD can replace it after approval.
+
+No continuous 3D animation loop or auto-rotation is used. Native camera and feature buttons complement drag interaction. Reduced-motion, phone and Save-Data visitors get the hero poster until they opt in; offscreen/hidden video pauses. A failed GLB request leaves a retry button, image and functional hardware tour.
+
+The catalog remains nine public-source examples. No new hardware validation, firmware compatibility, online flash or commerce is implied.
+
 ## V3 — approved editorial / Project Hub direction (2026-09-21)
 
 The new story is **see a real outcome → choose a board → choose an application → inspect a project → open source / SDK**. Home introduces the product rather than opening with dense technical exploration. Hardware hotspots, functional diagrams and RGB simulation remain on `boards.html`.

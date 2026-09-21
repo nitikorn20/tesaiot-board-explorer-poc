@@ -11,7 +11,7 @@ Independent design proposal for a **board showcase**, **Project Hub** and **Edge
 
 - Board showcase: `dist/index.html`
 - Example catalog: `dist/examples.html`
-- Source transparency: `dist/sources.html`
+- TESA / Infineon resources and collapsed media credits: `dist/sources.html`
 - Board details / hotspots: `dist/boards.html?board=training` or `?board=ndr`
 - Curated stories: `dist/featured.html`
 - Demo, AI references and DEEPCRAFT pathways: `dist/edge-ai.html`
@@ -28,20 +28,21 @@ Requires Node.js 22+. No package installation, backend, Docker, API key, or brow
 
 ## Verification (2026-09-21)
 
-Version 0.3: fifteen Node tests cover catalog provenance, combined filters, sanitization, local assets/anchors, absence of hardware APIs/embedded secrets, bilingual controls, NDR labels, RGB thresholds, light-default preferences and separate AI-reference status. CI rebuilds seven pages and the AI reference manifest and verifies committed output.
+Version 0.4: 22 Node tests cover catalog provenance, filters, sanitization, local assets/anchors, hardware/API boundaries, bilingual controls, NDR labels, RGB thresholds, preferences, AI-reference status, homepage structure, motion/data guards, opt-in 3D, the pinned GLB hash and self-contained assets, vendor imports/licenses and relevant public resources. CI rebuilds seven pages and the AI reference manifest and verifies committed output.
 
-V3 browser checks cover desktop, seven routes at 390px Thai/light and 320px English/dark without horizontal overflow, persistent language/theme preferences, board switching and keyboard hotspots, shared-USB-PHY details, example filtering/dialogs, NDR empty state and successful opt-in WebM playback. The native accessibility play action crashed two embedded-browser test tabs; keyboard activation successfully played the WebM source. A universal browser/codec guarantee is not implied. V2 previously covered catalog error/retry and reduced-motion behavior; both remain implemented.
+V4 browser checks cover desktop, all seven pages at 320px Thai/light and 390px English/dark without horizontal overflow; a playing 16-second WebM hero, pause and mobile opt-in; reduced-motion poster-only behavior; actual Training GLB loading, feature selection and camera buttons; NDR switching/exploded view; and a deliberately blocked GLB request that retains the still image and succeeds after Retry. Earlier catalog/filter/dialog, RGB and hardware-tour checks remain covered by the retained tests. These checks are not a universal browser/codec guarantee.
 
 These are website checks only, not firmware builds, hardware validation or a comprehensive accessibility audit.
 
 ## What is implemented
 
-- Editorial outcome-first homepage, separate board details, Project Hub / Featured / Edge AI Hub and Learn / Docs. Featured is a curated collection, not a category or popularity ranking.
+- Full-width film hero → two product tiles + Developer Hub → three selected stories → compact SDK / Edge AI next step. Separate board details, Project Hub / Featured / Edge AI Hub and Learn / Docs. Featured is curation, not a popularity ranking.
 - Complete TH/EN interface with persistent Dark/Light themes (light default), responsive typography and consistent capability icons.
-- Existing BENTO Edge AI footage from user-supplied Canva slide 21: a silent 39-second crop, WebM with MP4 fallback, real-frame poster, visible provenance and text description. No autoplay or background video download.
+- Existing BENTO Edge AI footage from user-supplied Canva slide 21: a silent 16-second hero excerpt, WebM + MP4, poster and pause control. Desktop autoplay is guarded by reduced-motion and Save-Data; phones are opt-in. Playback pauses when hidden/offscreen. The full 39-second clip remains opt-in on Edge AI Hub.
 - Three official Infineon Audio / Motion / Vision references, explicitly **upstream / TESA validation pending**, with CSS concept artwork and specific filming briefs. Separate from the nine hardware examples.
 - DEEPCRAFT AI Hub / Studio / Model Converter discovery paths, not local training or inference.
-- Real QWA309 Training image with 8 numbered hover/tap/keyboard hotspots. NDR reference composition with 3 explicitly conceptual hotspots, not a final port map.
+- Real QWA309 Training image with 8 numbered hover/tap/keyboard hotspots. An on-demand TESA GLB viewer has 7 measured points; the optional OPTIGA Trust M module is absent from that GLB and not fabricated. All feature buttons are available without dragging.
+- NDR uses an original code-drawn concept image and a procedural 3D SOM/carrier with assembled/exploded views and 2 conceptual points. Shape, size, placement and interfaces are not confirmed PCB geometry or a pin map. The old Luckfox-based reference asset is retained only as an unlinked historical asset.
 - Interactive, code-drawn functional block diagrams for both board paths. Optional Ethernet, shared USB PHY and revision/BSP uncertainty remain explicit.
 - Browser-only Pot → RGB playground: each channel turns on above 50%, yielding eight digital colors. This is not live hardware control or continuous dimming.
 - Restrained hover, entrance and signal animations with `prefers-reduced-motion` support.
@@ -52,13 +53,13 @@ These are website checks only, not firmware builds, hardware validation or a com
 
 ## Boundaries
 
-No Online Flash, firmware build, hardware validation, USB/camera access, purchasing, authentication, analytics, or production-site changes. No complete internal NDR documents, contracts, private repository content or slide decks are included. Only the specifically requested page-10 reference image and page-21 video crop are included with labels and separate rights notices. USB-camera feasibility requires separate Host/power/BSP/device validation. A common E84 chip family does not establish kit/carrier/BSP equivalence. Sensor graphs, Pot RGB and audio meters are not presented as AI.
+No Online Flash, firmware build, hardware validation, USB/camera access, purchasing, authentication, analytics, or production-site changes. No complete internal NDR documents, contracts, private repository content or slide decks are included. The user-requested TESA GLB and page-21 video crop have source attribution and separate rights notices. The former page-10 reference image is retained as an unlinked historical asset; current NDR imagery is explicitly conceptual. USB-camera feasibility requires separate Host/power/BSP/device validation. A common E84 chip family does not establish kit/carrier/BSP equivalence. Sensor graphs, Pot RGB and audio meters are not presented as AI.
 
 The catalog's `board: training` is an editorial browsing family, not a validation certification. Original metadata IDs (`KIT_PSE84_AI`, `TESAIoT_PSE84_AI`, `TESAIoT_DEV_KIT`) remain visible. Always verify the exact BSP, board revision, sensors and accessories in the linked README.
 
 ## Data update
 
-Edit editorial pages and AI references in `scripts/build-pages.mjs`; shared validated hardware/catalog sections are in `scripts/page-sections.mjs`. Run `npm run build`; do not edit generated `dist/*.html` alone. Board descriptions live in `dist/boards.js`; English example summaries live in `dist/example-translations.js`. The runtime is dependency-free JavaScript, CSS and SVG; no 3D model or animation framework is downloaded. Media files are checked-in derivatives, not generated by the site build; editing notes and hashes are in `THIRD_PARTY_NOTICES.md`.
+Edit the product homepage, 3D shell and Resources in `scripts/product-layout.mjs`; other editorial pages and AI references in `scripts/build-pages.mjs`; shared hardware/catalog sections in `scripts/page-sections.mjs`. Run `npm run build`; do not edit generated `dist/*.html` alone. Board data lives in `dist/boards.js`; English example summaries in `dist/example-translations.js`. The 3D interface dynamically loads `board-viewer.js`, locally vendored Three.js r169 / Draco, and the Training GLB only after a click. No CDN is needed for 3D; media files are checked-in derivatives. Source pins, credits and editing notes are in `THIRD_PARTY_NOTICES.md`.
 
 `scripts/sync-catalog.mjs` fetches only an explicit allowlist of public metadata/images. It does not execute upstream firmware or recursively copy a repository. Commits are pinned; to update, review the new source commit and the selected examples, then update the refs in the script and run:
 

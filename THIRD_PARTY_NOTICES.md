@@ -1,5 +1,16 @@
 # Third-party source and asset notices
 
+## V4: Training 3D, local viewer and hero excerpt
+
+- `dist/assets/training-board.glb`: unmodified `docs/assets/dev-kit.glb` from `tesaiot/tesaiot-pse84-devkit-sdk`, pinned commit `ef72c1b658178eee8c38b1e47d28b006f80a59b5`. 1,912,940 bytes; SHA-256 `db66684dafec857a8b05b1481430dfdb7e6f15800866f1d680e7d6f409857b9d`. **3D model © TESA**; not newly authored PoC code. Original model/media rights remain with TESA. User explicitly requested use of the TESA SDK model. The root upstream repository reports Apache-2.0; do not assume trademarks or all media have been reassigned to this PoC.
+- Seven numerical Training feature anchors/camera poses are adapted from the same commit's `docs/assets/board3d.js` (TESA SDK, Apache-2.0 at repository root). The new viewer is authored here. The upstream viewer's procedurally added red OPTIGA Trust M module is **not** copied or recreated; the unmodified GLB lacks this optional accessory. Actual kit revisions may differ.
+- `dist/vendor/three.module.min.js` and `three-addons/**` are unmodified public assets from the same pinned SDK commit. The module reports Three.js revision **169**. Copyright Three.js Authors, MIT; full text in `dist/vendor/THREE-LICENSE.txt` from official Three.js r169.
+- `dist/vendor/draco/**` are unmodified decoder files from the same pinned SDK commit. Draco is copyright Google, Apache-2.0; license text in `dist/vendor/DRACO-LICENSE.txt` from official Draco 1.5.7. This license-text source does not establish the exact SDK decoder binary release. The binary provenance is the pinned TESA commit above. Local WebAssembly/worker decoding is used; no runtime CDN or tracking.
+- `dist/assets/tesa-hero.webm` / `.mp4`: seconds **9–25** of the existing 39.066-second cropped BENTO MP4 described below. Duration 16 seconds, 960 × 632, no audio, no speed changes or new/invented outputs. VP9 CRF 35 / zero target bitrate; H.264 CRF 26 / fast / faststart. Same separate footage rights as the existing clip; not relicensed as Apache website code. Visible hero credit links to the full demo. The CSS crops responsively, with a contrast overlay for text.
+- `dist/assets/ndr-concept.svg` and NDR geometry in `dist/board-viewer.js` are original code-drawn illustrations. **Not final NDR CAD or product photography**. Geometry, dimensions, component/connector positions and colors are illustrative. They do not establish a pin map, routing, supported interface or validation result. The old page-10 reference PNG is retained as an unlinked historical asset; it is no longer used as current NDR product imagery.
+
+V4 hero hashes (SHA-256): WebM `b15bd06565ac48b6e7402420dae3b7d8bd781672aa41e85dffb15eb23a8b3d88`; MP4 `dfa52ba98bc5de2491e206a15a9a8391a77caf1a91038d4366b6a67b7ae26cab`. New NDR SVG: `2aae1620481dff7fd3b4ed36c4f56f821580c4a37d8e04930cb19d8a4f3e086c`.
+
 Built with TESAIoT Platform Examples.
 https://github.com/tesaiot/developer-hub
 Copyright 2025 TESAIoT Platform by TESA.
@@ -16,9 +27,9 @@ The upstream Apache 2.0 license is preserved in `LICENSE`; upstream attribution/
 
 Exact image, metadata, README and source URLs are recorded per example in `dist/data/catalog.json`. Product screenshots are illustrative upstream snapshots, not live hardware or independently verified test evidence. The Pot RGB/ADC examples reuse a labeled product-reference image because their selected source folders do not include screenshots.
 
-The website code, layout, curation and Thai/English editorial summaries are new for this PoC. No existing official website code, firmware, private repository, complete NDR design document or contract is copied.
+The website UI, layout, curation and Thai/English editorial summaries are new for this PoC. V4 reuses the explicitly credited public vendor assets and numerical model anchors above. No upstream firmware, private repository, complete NDR design document or contract is copied.
 
-## User-selected NDR reference asset — separate rights
+## Historical user-selected NDR reference asset — separate rights
 
 - File: `dist/assets/ndr-reference-concept.png` (773 × 800 PNG).
 - Source: the image selected by the user from page 10 of Canva design `DAHT7gbtBEY`, reviewed on 2026-09-21. Access-bearing editor and signed image URLs are intentionally not published.

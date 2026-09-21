@@ -1,6 +1,6 @@
 {
   "name": "tesaiot-board-explorer-poc",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "Independent static design PoC for a TESAIoT board showcase and selected hardware example catalog",

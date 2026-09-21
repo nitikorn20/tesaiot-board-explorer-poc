@@ -1,5 +1,7 @@
 // Small, consistent outline icons authored for the site; no external icon runtime.
 const paths={
+  play:'<path d="m8 4 13 8-13 8z"/>',
+  pause:'<path d="M8 4v16M16 4v16"/>',
   chip:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="9" y="9" width="6" height="6" rx="1"/>',
   display:'<rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8m-4-4v4m-6-8 3-3 3 3 5-5"/>',
   sensor:'<circle cx="12" cy="12" r="3"/><path d="M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14M8 8a6 6 0 0 0 0 8m8-8a6 6 0 0 1 0 8"/>',

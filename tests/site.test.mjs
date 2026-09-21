@@ -66,7 +66,7 @@ test('no hardware APIs, third-party tracking or embedded secrets in site code',a
 
 test('board content is bilingual, coordinates bounded, NDR honestly labeled',()=>{
   assert.equal(boards.training.hotspots.length,8);
-  assert.equal(boards.ndr.kind,'reference');
+  assert.equal(boards.ndr.kind,'concept');
   assert.match(boards.ndr.caption.en,/not a finished NDR PCB/);
   for(const board of Object.values(boards)){
     for(const point of board.hotspots){assert.ok(point.x>0&&point.x<100&&point.y>0&&point.y<100);assert.ok(point.title.th&&point.title.en&&point.desc.th&&point.desc.en);}
@@ -91,7 +91,7 @@ test('all pages expose language/theme controls and use the current entry points'
     const html=await readFile(resolve(root,file),'utf8');
     assert.match(html,/data-lang="th"/);assert.match(html,/data-lang="en"/);assert.match(html,/id="theme-toggle"/);
     assert.match(html,/src="preferences.js"/);assert.match(html,/href="v2.css"/);
-    assert.match(html,/href="v3.css"/);assert.match(html,/<html lang="th" data-theme="light">/);
+    assert.match(html,/href="v3.css"/);assert.match(html,/href="v4.css"/);assert.match(html,/<html lang="th" data-theme="light">/);
     assert.doesNotMatch(html,/src="app.js"|href="styles.css"/);
     const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(x=>x[1]);
     assert.equal(ids.length,new Set(ids).size,`Duplicate IDs in ${file}`);

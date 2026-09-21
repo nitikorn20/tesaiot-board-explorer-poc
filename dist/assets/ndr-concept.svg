@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="t d">
+<title id="t">NDR modular board concept</title><desc id="d">Illustrative SOM and carrier geometry, not final dimensions, routing or component positions.</desc>
+<defs><linearGradient id="pcb" x2="1" y2="1"><stop stop-color="#274e47"/><stop offset="1" stop-color="#102d30"/></linearGradient><linearGradient id="som" x2="1" y2="1"><stop stop-color="#bacccb"/><stop offset="1" stop-color="#7d9696"/></linearGradient></defs>
+<ellipse cx="303" cy="318" rx="204" ry="35" fill="#000" opacity=".18"/>
+<path d="M80 237 283 145 524 231 318 334Z" fill="#0e2024"/><path d="M80 226 283 134 524 220 318 323Z" fill="url(#pcb)"/><path d="m80 226 238 97v11L80 237z" fill="#183332"/>
+<g stroke="#8fc4b4" opacity=".35" fill="none" stroke-width="2"><path d="m150 224 79-34 152 54 42-20m-253 34 58-25 146 52 85-38m-90-75 70 25-91 42"/></g>
+<path d="m202 191 69-30 9 3-70 32v14l-8-3zM329 239l71-31 9 3-72 32v13l-8-3z" fill="#090f18"/>
+<g fill="#65897d"><path d="m107 226 13-6 14 5-13 6zM289 154l13-6 14 5-13 6zM468 221l13-6 14 5-13 6zM309 302l13-6 14 5-13 6z"/></g>
+<g fill="#607574"><path d="m142 237 34-15 23 8-34 15zM390 269l37-17 26 9-36 17z"/></g>
+<path d="m184 140 102-46 146 52-103 48Z" fill="#536c6b"/><path d="m184 132 102-46 146 52-103 48Z" fill="url(#som)"/><path d="m184 132 145 54v8l-145-54z" fill="#76918d"/>
+<path d="m251 127 44-20 49 18-44 21v8l-49-18z" fill="#172129"/><path d="m251 127 44-20 49 18-44 21z" fill="#2c3b42"/>
+<g fill="#445960"><path d="m343 139 17-8 22 8-17 8zM314 152l17-8 22 8-17 8z"/></g>
+<g stroke="#bdeca7" stroke-dasharray="3 5" stroke-width="1.5" opacity=".55"><path d="m199 156 0 45m217-38 0 61"/></g>
+<text x="310" y="271" fill="#a2bdb4" font-family="sans-serif" font-size="11" transform="rotate(20 310 271)">CARRIER / CONCEPT</text>
+</svg>

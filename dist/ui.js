@@ -41,10 +41,10 @@ function renderBoard(){
   const board=boards[boardId];
   document.querySelectorAll('[data-board]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.board===boardId)));
   if($('#board-page-title'))$('#board-page-title').textContent=board.name;
-  if($('#board-page-summary'))$('#board-page-summary').textContent=boardId==='training'?t('QWA309 + KIT_PSE84_AI: ทดลอง Input, Sensor, Audio และ HMI จากภาพบอร์ดจริง พร้อมเชื่อมไปยัง Example และ SDK','QWA309 + KIT_PSE84_AI: explore inputs, sensors, audio and HMI on the real assembly, then continue to examples and the SDK.'):t('TSOM + Base ใหม่ของ NDR: ภาพประกอบแนวคิดจากต้นทาง ไม่ใช่ PCB ที่เสร็จแล้ว ต้องยืนยัน Revision, BSP และ Interface ก่อนเริ่มพัฒนา','TSOM + the new NDR base: a source reference concept, not a finished PCB. Confirm revision, BSP and interfaces before development.');
+  if($('#board-page-summary'))$('#board-page-summary').textContent=boardId==='training'?t('QWA309 + KIT_PSE84_AI: ทดลอง Input, Sensor, Audio และ HMI จากภาพบอร์ดจริง พร้อมเชื่อมไปยัง Example และ SDK','QWA309 + KIT_PSE84_AI: explore inputs, sensors, audio and HMI on the real assembly, then continue to examples and the SDK.'):t('TSOM + Base ใหม่ของ NDR: ภาพจำลองแนวคิด ไม่ใช่ PCB ที่เสร็จแล้ว ต้องยืนยัน Revision, BSP และ Interface ก่อนเริ่มพัฒนา','TSOM + the new NDR base: an illustrative concept, not a finished PCB. Confirm revision, BSP and interfaces before development.');
   document.querySelectorAll('[data-training-only]').forEach(el=>{el.hidden=boardId!=='training';});
   stage.dataset.board=boardId;
-  stage.innerHTML=board.kind==='actual'?`<img src="${board.image}" alt="${e(board.caption[lang()])}" width="1000" height="750">`:`<svg class="ndr-photo" viewBox="180 520 410 280" role="img" aria-label="${e(board.caption[lang()])}"><image href="${board.image}" width="773" height="800"/></svg><span class="stage-badge">REFERENCE CONCEPT · ${t('ไม่ใช่ PCB ฉบับสุดท้าย','NOT A FINAL PCB')}</span>`;
+  stage.innerHTML=`<img src="${board.image}" alt="${e(board.caption[lang()])}" width="${boardId==='training'?1000:600}" height="${boardId==='training'?750:400}">${boardId==='ndr'?`<span class="stage-badge">CONCEPT · ${t('ไม่ใช่ PCB ฉบับสุดท้าย','NOT A FINAL PCB')}</span>`:''}`;
   stage.insertAdjacentHTML('beforeend',board.hotspots.map((point,i)=>`<button type="button" class="hotspot" style="--x:${point.x}%;--y:${point.y}%" data-index="${i}" data-side="${point.x<35?'start':point.x>65?'end':'middle'}" aria-label="${i+1}. ${e(point.title[lang()])}" aria-pressed="${i===hotspotIndex}" aria-controls="hotspot-detail"><span>${i+1}</span><span class="pin-tooltip" aria-hidden="true"><b>${icon(point.icon)}${e(point.title[lang()])}</b><small>${e(point.spec)}</small></span></button>`).join(''));
   stage.querySelectorAll('.hotspot').forEach((button,i)=>{
     const activate=()=>{stage.classList.remove('tooltip-dismissed');selectHotspot(i);};
@@ -72,6 +72,7 @@ function renderBoard(){
   $('#architecture-content').innerHTML=`<div class="architecture-canvas" style="--nodes:${half}"><div class="node-stack">${board.groups.slice(0,half).map(node).join('')}</div><div class="core-block">${icon('chip')}<b>${boardId==='training'?'KIT_PSE84_AI':'TSOM MODULE'}</b><small>PSoC™ Edge E84<br>${boardId==='training'?'QWA309 BASE':'NDR BASE · DRAFT'}</small></div><div class="node-stack">${board.groups.slice(half).map(node).join('')}</div></div>`;
   document.querySelectorAll('[data-block]').forEach(button=>button.addEventListener('click',()=>showBlock(button.dataset.block)));
   showBlock(blockId);
+  document.dispatchEvent(new CustomEvent('boardchange',{detail:{id:boardId}}));
 }
 function changeBoard(id){
   if(!Object.hasOwn(boards,id))return;
@@ -97,3 +98,4 @@ function updateSimulation(){
 }
 document.querySelectorAll('.pot-control input').forEach(input=>input.addEventListener('input',updateSimulation));updateSimulation();
 document.addEventListener('languagechange',()=>{updateThemeControl();renderBoard();updateSimulation();});
+document.addEventListener('hardwarefocus',event=>{if(stage&&boardId==='training')selectHotspot(event.detail.index);});
