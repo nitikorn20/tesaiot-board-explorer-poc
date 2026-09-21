@@ -1,5 +1,18 @@
 # Board Explorer — design rationale
 
+## V5 — choose a board, then inspect it (2026-09-21)
+
+Requested scope: recommendations 2 and 3 only. The film, featured stories, project catalog, first-example journey and contact flow are not redesigned in this version.
+
+- Product tiles briefly identify their audience; board details use three consistent groups: audience / use cases, actual-assembly or draft hardware, and external / optional devices. The content is not a confirmed in-box list or a compatibility certificate.
+- A single Photo / 3D surface replaces two large repeated sections. One selected feature and one detail panel serve both views, with native feature buttons and previous/next navigation available on mobile and keyboard.
+- Photography is the default. 3D remains opt-in and lazy. Selection survives Photo ↔ 3D and language changes; a failed load returns to the usable photo with Retry.
+- The Training model has seven measured points; the optional Trust M in photo point eight is not modeled. Selecting it in 3D shows a photo-only note and a direct switch to the same photo point.
+- NDR uses Concept / 3D Concept labels. Geometry, package contents, revision/BSP and example compatibility remain unconfirmed. External camera/display requirements are explicit, and Training peripherals are not inherited.
+- Guide data: `dist/board-guides.js`. Shared feature truth: `dist/boards.js`. Markup: `scripts/board-layout.mjs`. No new source media, libraries or hardware APIs.
+
+Earlier versions below are retained as design history, not the current implementation.
+
 ## V4 — approved cinematic product direction (2026-09-21)
 
 The user approved **large video → two products + Developer Hub → three selected stories → concise next step**. Remove the PoC content-count strip and design-inspiration links from the public product journey. `sources.html` now contains directly relevant TESA / Infineon resources with collapsed media credits. The reference research below stays in the repository as design history; it is not product evidence.

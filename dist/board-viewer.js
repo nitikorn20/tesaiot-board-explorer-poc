@@ -101,7 +101,7 @@ export function createBoardViewer(mount,pins,onSelect,onFailure){
   if(name==='in')sph.radius=Math.max(.7,sph.radius*.82);if(name==='out')sph.radius=Math.min(7,sph.radius/ .82);
   camera.position.setFromSpherical(sph).add(controls.target);controls.update();render();
  }
- return{show,resize,focus,action,explode(value){if(active!=='ndr')return;exploded=value;som.position.y=value?.6:.16;render();},suspend(){visible=false;request++;delete mount.dataset.loaded;},dispose(){
+ return{show,resize,focus,select(index){selected=index;render();},action,explode(value){if(active!=='ndr')return;exploded=value;som.position.y=value?.6:.16;render();},suspend(){visible=false;request++;delete mount.dataset.loaded;},dispose(){
   visible=false;request++;sizeObserver.disconnect();controls.dispose();draco.dispose();
   document.removeEventListener('visibilitychange',render);renderer.domElement.removeEventListener('webglcontextlost',contextLost);
   const geometries=new Set(),materials=new Set(),textures=new Set();
