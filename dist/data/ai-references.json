@@ -1,0 +1,54 @@
+{
+  "reviewed": "2026-09-21",
+  "scope": "Official upstream references; not validated on the TESA assemblies by this PoC.",
+  "references": [
+    {
+      "id": "audio",
+      "icon": "audio",
+      "label": "AUDIO INTELLIGENCE",
+      "th": "ให้เสียงมีความหมาย",
+      "en": "Give sound meaning.",
+      "descTh": "เริ่มสำรวจ Audio classification ด้วยตัวอย่าง Baby Cry จาก Infineon ไม่ใช่เพียงการวัดระดับเสียง",
+      "descEn": "Explore audio classification with Infineon’s baby-cry starter example, beyond a sound-level meter.",
+      "hardware": "PDM / PCM · KIT_PSE84_AI",
+      "repo": "mtb-example-psoc-edge-ml-deepcraft-deploy-audio",
+      "shotTh": "ถ่ายเสียงทดสอบ → หน้าจอ Class / Confidence พร้อมระบุ Model และเงื่อนไขทดสอบ",
+      "shotEn": "Capture test audio → class / confidence on screen. Identify the model and test conditions.",
+      "url": "https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-deploy-audio",
+      "status": "upstream-reference",
+      "tesaValidation": "pending"
+    },
+    {
+      "id": "motion",
+      "icon": "sensor",
+      "label": "MOTION INTELLIGENCE",
+      "th": "จากการเคลื่อนไหว สู่กิจกรรม",
+      "en": "From motion to activity.",
+      "descTh": "ตัวอย่าง Human Activity Recognition ใช้ข้อมูล BMI270 เป็นจุดเริ่มต้น แยกจาก Example ที่แสดงกราฟ IMU",
+      "descEn": "Start from the BMI270 human-activity-recognition reference. This is separate from an IMU chart example.",
+      "hardware": "BMI270 · KIT_PSE84_AI",
+      "repo": "mtb-example-psoc-edge-ml-deepcraft-deploy-motion",
+      "shotTh": "ถ่ายการเคลื่อนไหวและ Class ที่ Model ทำนาย โดยให้เห็นบอร์ดและผลลัพธ์ในเฟรมเดียว",
+      "shotEn": "Show the movement, board and predicted activity together in one frame.",
+      "url": "https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-deploy-motion",
+      "status": "upstream-reference",
+      "tesaValidation": "pending"
+    },
+    {
+      "id": "vision",
+      "icon": "camera",
+      "label": "VISION INTELLIGENCE",
+      "th": "ให้บอร์ดมองเห็นไอเดีย",
+      "en": "Let your board see.",
+      "descTh": "ตัวอย่าง Rock–Paper–Scissors ใช้ USB Camera และแสดงผลบนจอ ต้องตรวจรุ่นกล้อง, USB Host, Power และ BSP ก่อนทดลอง",
+      "descEn": "Explore rock–paper–scissors detection with a USB camera and display. Check the camera, USB host, power and BSP first.",
+      "hardware": "USB Camera + LCD · KIT_PSE84_AI",
+      "repo": "mtb-example-psoc-edge-ml-deepcraft-deploy-vision",
+      "shotTh": "ถ่ายมือเป่ายิ้งฉุบ กล้อง USB ที่ต่ออยู่ และผล Detection บนจอ พร้อมแจ้งรุ่นกล้อง",
+      "shotEn": "Show the hand gesture, connected USB camera and detection result. Identify the camera model.",
+      "url": "https://github.com/Infineon/mtb-example-psoc-edge-ml-deepcraft-deploy-vision",
+      "status": "upstream-reference",
+      "tesaValidation": "pending"
+    }
+  ]
+}

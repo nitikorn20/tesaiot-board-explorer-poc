@@ -28,3 +28,20 @@ The website code, layout, curation and Thai/English editorial summaries are new 
 - This image is **not relicensed under the repository's Apache-2.0 code license**. Original image, product and trademark rights remain with their respective owners. Do not assume unrestricted redistribution or official endorsement; obtain the appropriate production-publication clearance and replace it with approved final photography when available.
 
 Google Fonts supplies IBM Plex Sans Thai and Space Grotesk via its stylesheet service; fonts are not vendored in this repository. System-font fallbacks work without that service. No analytics are included.
+
+## User-requested BENTO demo footage — separate rights
+
+- Source: user-supplied Canva design `DAHT7gbtBEY`, page 21 as reviewed/exported 2026-09-21. On-slide media name: `BENTO Demo - Edge AI (Multi-model).mp4`. Source footage retains its visible attribution. Editor access keys and temporary signed download URLs are not published.
+- A single-slide 1920 × 1080 MP4 was exported through Canva's normal download UI. The complete slide remains outside this repository.
+- Published crop: `crop=1064:700:16:360`, resized to 960 × 632 at 30 fps, audio removed, duration 39.066 seconds. No time acceleration, AI modification or invented screen outputs. Adjacent stock illustrations and unrelated slide text are excluded.
+- `dist/assets/bento-edge-ai-demo.mp4`: H.264 CRF 25 / fast / faststart, SHA-256 `756015d399ff383773c35392f59532347890f1c5f3e26a45948b86ed22a01be4`.
+- `dist/assets/bento-edge-ai-demo.webm`: VP9 derivative, CRF 36 / zero target bitrate, SHA-256 `348cb43ff8bcffbb56b5618d8c7c9128d2b21bef3eef79eaf3b6e4ebc8d27a99`.
+- `dist/assets/bento-edge-ai-poster.jpg`: frame at 15 seconds of the cropped clip, SHA-256 `cd67493bc9475366cd2e0ed539615241d54ee2443aaf2cfb800758a6c0c48252`.
+- Visual-description text is editorial and does not certify classification correctness. The clip is an existing demo, not a new test, model benchmark or NDR validation. It does not imply the displayed firmware is included in the nine-example catalog.
+- Footage and its poster are **excluded from the Apache-2.0 website-code license**. Original rights remain with the owners. The user requested reuse in this design PoC; obtain appropriate publication clearance before a production rollout.
+
+## Linked upstream AI references
+
+Three official Infineon repositories are linked, with brief original summaries in `dist/data/ai-references.json`. No upstream firmware, model weights or binaries are copied. Each reference is labeled TESA validation pending. DEEPCRAFT and PSoC marks identify Infineon's tools/products; this site is not endorsed by Infineon.
+
+Arduino product pages, Project Hub, Featured and Dragonwing Hub informed information architecture only. No Arduino brand assets, project media, code or social counts are reused.
