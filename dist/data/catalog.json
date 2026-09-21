@@ -1,0 +1,390 @@
+{
+  "schemaVersion": 1,
+  "retrievedOn": "2026-09-21",
+  "sourceRepository": "https://github.com/tesaiot/developer-hub",
+  "compatibilityNotice": "Training เป็นหมวดค้นหา ไม่ใช่คำรับรอง Hardware Validation; ดู Original Board IDs, BSP และอุปกรณ์ใน README. ยังไม่มีรายการยืนยันสำหรับ NDR Base ใหม่ใน PoC นี้.",
+  "examples": [
+    {
+      "id": "motion",
+      "path": "int_ep02_bmi270_motion_visual",
+      "category": "sensors",
+      "title": "Motion, made visible.",
+      "subtitle": "BMI270 Motion Visual",
+      "hardware": [
+        "BMI270 IMU",
+        "LCD / LVGL"
+      ],
+      "outcome": "เห็นการเคลื่อนไหว 6 แกนจาก Accelerometer และ Gyroscope บนหน้าจอ",
+      "featured": true,
+      "board": "training",
+      "image": "assets/examples/motion.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep02_bmi270_motion_visual/int_ep02_bmi270_motion_visual.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP02 — BMI270 Motion Visual",
+      "description": "แสดงค่าการเคลื่อนไหว 6 แกนจากเซนเซอร์ Bosch BMI270 (accelerometer + gyroscope) บนจอ LVGL แบบเรียลไทม์",
+      "difficulty": "beginner",
+      "tags": [
+        "tesaiot",
+        "bmi270",
+        "imu",
+        "accelerometer",
+        "gyroscope",
+        "motion",
+        "i2c",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_sensors"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep02_bmi270_motion_visual",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep02_bmi270_motion_visual/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep02_bmi270_motion_visual/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "rgb",
+      "path": "prac_qwa309_pot_rgb_mixer",
+      "category": "control",
+      "title": "Turn. Mix. Light up.",
+      "subtitle": "Pot → RGB Mixer",
+      "hardware": [
+        "QWA309 Pot ×3",
+        "DFR0522 RGB Matrix",
+        "LCD / LVGL"
+      ],
+      "outcome": "หมุน Pot 3 ตัวเพื่อเปิด–ปิดช่องสี R/G/B ด้วย Threshold 50% เกิดสีผสม 8 สี ไม่ใช่การหรี่สีต่อเนื่อง",
+      "featured": true,
+      "board": "training",
+      "image": "assets/training-board.webp",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/tesaiot-pse84-devkit-sdk/ef72c1b658178eee8c38b1e47d28b006f80a59b5/docs/assets/tesaiot-dev-kit.webp",
+      "imageKind": "hardware-reference",
+      "originalTitle": "QWA309 — Pot → RGB Mixer",
+      "description": "3 potentiometers เป็น R/G/B channel (>50% = เปิดสีนั้น) ผสมเป็น 1 ใน 8 สีของ DFR0522 matrix + แสดงบน LCD — รวม SAR pots + RGB I2C",
+      "difficulty": "intermediate",
+      "tags": [
+        "tesaiot",
+        "qwa309",
+        "lvgl",
+        "adc",
+        "pot",
+        "rgb",
+        "i2c",
+        "mixer"
+      ],
+      "originalBoards": [
+        "TESAIoT_DEV_KIT"
+      ],
+      "requirements": [
+        "requires_pots",
+        "requires_rgb_matrix"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_pot_rgb_mixer",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_pot_rgb_mixer/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_pot_rgb_mixer/metadata.json",
+      "ref": "372d0d849578a6a49b634d3ecaab8b5958166921",
+      "branch": "tesaiot_dev_kit_practise_codes"
+    },
+    {
+      "id": "sensorhub",
+      "path": "int_ep07_sensorhub_final",
+      "category": "dashboard",
+      "title": "One screen. Every sensor.",
+      "subtitle": "SensorHub Dashboard",
+      "hardware": [
+        "DPS368",
+        "SHT4x",
+        "BMI270",
+        "BMM350",
+        "PDM Mic",
+        "LCD / LVGL"
+      ],
+      "outcome": "รวมข้อมูลสิ่งแวดล้อม การเคลื่อนไหว สนามแม่เหล็ก และระดับเสียงใน Dashboard เดียว",
+      "note": "README ระบุขั้นตอนแก้ Vendor Code ของ BMM350 ก่อน Build ต้องอ่านข้อกำหนดต้นทาง",
+      "featured": true,
+      "board": "training",
+      "image": "assets/examples/sensorhub.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep07_sensorhub_final/int_ep07_sensorhub_final.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP07 — SensorHub Final",
+      "description": "โปรเจกต์ปิดคอร์ส: แดชบอร์ดรวมเซนเซอร์ทั้ง 4 ตัว (DPS368, SHT4x, BMI270, BMM350) + ไมโครโฟน PDM สเตอริโอ บนจอเดียว",
+      "difficulty": "advanced",
+      "tags": [
+        "tesaiot",
+        "sensorhub",
+        "dps368",
+        "sht4x",
+        "bmi270",
+        "bmm350",
+        "pdm",
+        "microphone",
+        "dashboard",
+        "i2c",
+        "i3c",
+        "multi-sensor",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_sensors",
+        "requires_audio"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep07_sensorhub_final",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep07_sensorhub_final/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep07_sensorhub_final/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "audio",
+      "path": "int_ep06_digital_mic_probe",
+      "category": "audio",
+      "title": "See what you hear.",
+      "subtitle": "Digital Mic Probe",
+      "hardware": [
+        "Stereo PDM Microphone",
+        "LCD / LVGL"
+      ],
+      "outcome": "ดูระดับสัญญาณเสียงจาก Microphone ซ้าย–ขวา เป็น Level Meter ไม่ใช่ AI จำแนกเสียง",
+      "board": "training",
+      "image": "assets/examples/audio.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep06_digital_mic_probe/int_ep06_digital_mic_probe.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP06 — Digital Mic Probe",
+      "description": "เก็บสัญญาณเสียงจากไมโครโฟน PDM สเตอริโอบนบอร์ด คำนวณระดับความดังซ้าย/ขวาแล้วแสดงเป็น level meter บนจอ LVGL",
+      "difficulty": "intermediate",
+      "tags": [
+        "tesaiot",
+        "pdm",
+        "microphone",
+        "audio",
+        "stereo",
+        "level-meter",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_audio"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep06_digital_mic_probe",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep06_digital_mic_probe/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep06_digital_mic_probe/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "climate",
+      "path": "int_ep03_sht40_indicator",
+      "category": "sensors",
+      "title": "A feel for the environment.",
+      "subtitle": "SHT40 Indicator",
+      "hardware": [
+        "SHT4x Sensor",
+        "LCD / LVGL"
+      ],
+      "outcome": "อ่านความชื้นสัมพัทธ์และอุณหภูมิ แล้วแสดงผลบนจอ เป็นจุดเริ่มต้นของ Environmental Monitor",
+      "board": "training",
+      "image": "assets/examples/climate.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep03_sht40_indicator/int_ep03_sht40_indicator.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP03 — SHT40 Indicator",
+      "description": "วัดความชื้นสัมพัทธ์และอุณหภูมิด้วยเซนเซอร์ Sensirion SHT4x บน I2C แล้วแสดงผลเป็นตัวบ่งชี้บนจอ LVGL",
+      "difficulty": "beginner",
+      "tags": [
+        "tesaiot",
+        "sht40",
+        "sht4x",
+        "humidity",
+        "temperature",
+        "environmental",
+        "i2c",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_sensors"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep03_sht40_indicator",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep03_sht40_indicator/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep03_sht40_indicator/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "pressure",
+      "path": "int_ep01_dps368_monitor",
+      "category": "sensors",
+      "title": "Read the atmosphere.",
+      "subtitle": "DPS368 Monitor",
+      "hardware": [
+        "DPS368 Sensor",
+        "LCD / LVGL"
+      ],
+      "outcome": "อ่านความดันบรรยากาศและอุณหภูมิผ่าน I2C แล้วแสดงค่าบนหน้าจอ",
+      "board": "training",
+      "image": "assets/examples/pressure.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep01_dps368_monitor/int_ep01_dps368_monitor.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP01 — DPS368 Monitor",
+      "description": "อ่านค่าความดันบรรยากาศและอุณหภูมิจากเซนเซอร์ Infineon DPS368 ผ่าน I2C แล้วแสดงผลบนจอ LVGL",
+      "difficulty": "beginner",
+      "tags": [
+        "tesaiot",
+        "dps368",
+        "pressure",
+        "temperature",
+        "barometer",
+        "i2c",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_sensors"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep01_dps368_monitor",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep01_dps368_monitor/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep01_dps368_monitor/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "compass",
+      "path": "int_ep04_bmm350_compass",
+      "category": "sensors",
+      "title": "Find your direction.",
+      "subtitle": "BMM350 Compass",
+      "hardware": [
+        "BMM350 Magnetometer",
+        "I3C",
+        "LCD / LVGL"
+      ],
+      "outcome": "แสดงทิศทางจาก Magnetometer ในรูปแบบเข็มทิศบนหน้าจอ",
+      "note": "README ระบุ Vendor Code Fix ของ BMM350 ต้องตรวจ Calibration และสภาพแวดล้อมสนามแม่เหล็กก่อนใช้งาน",
+      "board": "training",
+      "image": "assets/examples/compass.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep04_bmm350_compass/int_ep04_bmm350_compass.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP04 — BMM350 Compass",
+      "description": "สร้างเข็มทิศดิจิทัลจากเซนเซอร์สนามแม่เหล็ก Bosch BMM350 บน I3C พร้อมฟีเจอร์ปรับแต่ง (hard-iron calibration)",
+      "difficulty": "intermediate",
+      "tags": [
+        "tesaiot",
+        "bmm350",
+        "magnetometer",
+        "compass",
+        "calibration",
+        "i3c",
+        "lvgl"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_sensors"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep04_bmm350_compass",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep04_bmm350_compass/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/int_ep04_bmm350_compass/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    },
+    {
+      "id": "scope",
+      "path": "prac_qwa309_adc_scope",
+      "category": "control",
+      "title": "Four inputs. One view.",
+      "subtitle": "4-Channel ADC Scope",
+      "hardware": [
+        "QWA309 Pot ×4",
+        "ADC",
+        "LCD / LVGL"
+      ],
+      "outcome": "แสดงค่า Pot ทั้ง 4 ตัวเป็นกราฟเลื่อนบน LVGL เพื่อสังเกต Input ที่เปลี่ยนไป ไม่ใช่เครื่องมือ Oscilloscope สำหรับงานวัดทั่วไป",
+      "board": "training",
+      "image": "assets/training-board.webp",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/tesaiot-pse84-devkit-sdk/ef72c1b658178eee8c38b1e47d28b006f80a59b5/docs/assets/tesaiot-dev-kit.webp",
+      "imageKind": "hardware-reference",
+      "originalTitle": "QWA309 — 4-Channel ADC Scope",
+      "description": "plot ค่า pot 4 ตัว (P15.4-7, SAR 12-bit) เป็นเส้น scrolling บน LVGL chart 0-100% — analog oscilloscope",
+      "difficulty": "intermediate",
+      "tags": [
+        "tesaiot",
+        "qwa309",
+        "lvgl",
+        "adc",
+        "pot",
+        "chart",
+        "scope"
+      ],
+      "originalBoards": [
+        "TESAIoT_DEV_KIT"
+      ],
+      "requirements": [
+        "requires_pots"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_adc_scope",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_adc_scope/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/372d0d849578a6a49b634d3ecaab8b5958166921/prac_qwa309_adc_scope/metadata.json",
+      "ref": "372d0d849578a6a49b634d3ecaab8b5958166921",
+      "branch": "tesaiot_dev_kit_practise_codes"
+    },
+    {
+      "id": "wifi",
+      "path": "hmi_ep07_final_wifi_manager",
+      "category": "connectivity",
+      "title": "Connect from the screen.",
+      "subtitle": "Wi-Fi Manager",
+      "hardware": [
+        "Wi-Fi",
+        "Touch LCD / LVGL"
+      ],
+      "outcome": "ตัวอย่าง HMI สำหรับจัดการการเชื่อมต่อ Wi-Fi ผ่านหน้าจอ อ่าน Requirements ของ Master Template ก่อนใช้",
+      "board": "training",
+      "image": "assets/examples/wifi.png",
+      "imageSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/hmi_ep07_final_wifi_manager/hmi_ep07_final_wifi_manager.png",
+      "imageKind": "upstream-screenshot",
+      "originalTitle": "EP07 — Final WiFi Manager",
+      "description": "รวม scan + profile + connect + auto-retry + ping watchdog เป็น WiFi manager สมบูรณ์ พร้อม state machine บนหน้าจอและ auto-connect จาก profile ที่เก็บไว้",
+      "difficulty": "intermediate",
+      "tags": [
+        "tesaiot",
+        "lvgl",
+        "wifi",
+        "manager",
+        "connect",
+        "retry",
+        "auto-connect",
+        "state-machine"
+      ],
+      "originalBoards": [
+        "KIT_PSE84_AI",
+        "TESAIoT_PSE84_AI"
+      ],
+      "requirements": [
+        "requires_wifi"
+      ],
+      "source": "https://github.com/tesaiot/developer-hub/tree/e48fbd2a8d786730e30aed96eb129150e2bcf66d/hmi_ep07_final_wifi_manager",
+      "readme": "https://github.com/tesaiot/developer-hub/blob/e48fbd2a8d786730e30aed96eb129150e2bcf66d/hmi_ep07_final_wifi_manager/README.md",
+      "metadataSource": "https://raw.githubusercontent.com/tesaiot/developer-hub/e48fbd2a8d786730e30aed96eb129150e2bcf66d/hmi_ep07_final_wifi_manager/metadata.json",
+      "ref": "e48fbd2a8d786730e30aed96eb129150e2bcf66d",
+      "branch": "tesaiot_dev_kit_episodes"
+    }
+  ]
+}
